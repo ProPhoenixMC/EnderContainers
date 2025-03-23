@@ -1,0 +1,84 @@
+# # # # # # # # # # # # # # # # # # # # # #
+#   EnderContainers magyar fordírás (HU)  #
+#                        by Huntermaster  #
+#   Version: 2.3.0                        #
+#   An enderchests plugin by Utarwyn      #
+# # # # # # # # # # # # # # # # # # # # # #
+
+#  Commands locale  #
+##                 ##
+commands:
+
+  backups:
+    created: '&aBackup létrehozva ezzel a névvel: &b%backup%&a.'
+    creation_starting: 'A háttérben a backup készítésének elkezdése...'
+    exists: 'Backup már található ezzel a névvel: &6%backup% &c. Kérlek válassz új nevet..'
+    info: '&7Használd a &6%command% &7parancsot ahhoz, hogy több infót tudj meg egy backupról.'
+    loaded: '&aHurrá! A(z) &b%backup%&a backup sikeresen betöltve!'
+    loading_starting: 'A háttérben a backup betöltésének elkezdése...'
+    removed: '&aA(z) &b%backup%&a backup minden adatával együtt törölve lett.'
+    unknown: 'A(z) &6%backup%&c backup nem található.'
+    zero: '&cNincs egy backup sem. Használd a &6%command% parancsot ahhoz, hogy létrehozd az első backupot!'
+
+    label_name: 'Név'
+    label_date: 'Ekkor lett készítve:'
+    label_by: 'Ő készítette:'
+    label_loadcmd: '&8Backup alkalmazása'
+    label_rmcmd: '&8Backup törlése'
+
+  config_reloaded: 'Konfiguráció újratötlve!'
+  update: '&6EnderContainers &cfrissítés elérhető! Új verzió: &e%version%&c. Használd a &3ecp update &cparancsot a konzolban.'
+  no_update: 'Jelenleg nincs új frissítés. Próbáld újra később.'
+
+
+##              ##
+#  Menus locale  #
+##              ##
+menus:
+
+  main_title: '%player% Enderchestje'
+  chest_title: '%player% %num%. Enderchestje'
+
+  chest_item_accessible_title: '&a%num%. Enderchest %counter%'
+  chest_item_inaccessible_title: '&c%num%. Enderchest &a%counter%'
+
+  chest_empty: '&2Ez az enderchest üres!'
+  chest_full: '&cAz enderchest tele van!'
+  chest_locked: '&8&o>> Enderchest zárolva! Feloldás: /phoenixshop'
+
+  previous_page: '&c≪ Előző oldal'
+  next_page: '&cKövetkező oldal ≫'
+
+
+##               ##
+#  Errors locale  #
+##               ##
+errors:
+
+  noperm_open_chest: 'Ezt az enderchestet nem tudod kinyitni!'
+  noperm_console: 'Játékosnak kell lenned ahhoz, hogy ezt megtedd!'
+  noperm_player: 'Nincs jogod használni ezt a parancsot.'
+  player_not_found: '&6%playername% &cjátékos nem található.'
+  plugin_reload_error: 'Hiba a konfiguráció újratöltése közben! Ellenőrizd a konzolt a részletekért.'
+  plugin_world_disabled: 'A plugin le van tiltva ebben a világban.'
+  cmd_invalid_parameter: 'A(z) &6%param% &cparaméter nem érvényes.'
+  cmd_wrong_argument_count: 'Helytelen változó. Próbáld a &6/ecp help &cparancsot ahhoz, hogy megnézhesd a segítség részt!'
+
+
+##                     ##
+#  Dependencies locale  #
+##                     ##
+dependencies:
+
+  # Factions plugin
+  access_denied_factions: 'You can''t use the enderchest in %faction%''s territory!'
+  # PlotSquared Plugin
+  access_denied_plotsq: 'Ezen a ploton nem tudod használni ezt az enderchestet!'
+
+
+##                      ##
+#  Miscellaneous locale  #
+##                      ##
+miscellaneous:
+
+  chest_nametag: '&6&l%enderchests%/%maxenderchests%&r&e enderchest%plurial% elérhető'
