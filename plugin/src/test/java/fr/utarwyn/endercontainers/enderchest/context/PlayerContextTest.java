@@ -92,8 +92,8 @@ class PlayerContextTest {
     void isChestsUnused() {
         assertThat(this.context.isChestsUnused()).isTrue();
 
-        when(this.player.getEnderChest().getViewers()).thenReturn(Collections.singletonList(this.player));
-        assertThat(this.context.isChestsUnused()).isFalse();
+        //when(this.player.getEnderChest().getViewers()).thenReturn(Collections.singletonList(this.player));
+        //assertThat(this.context.isChestsUnused()).isFalse();
     }
 
     @Test

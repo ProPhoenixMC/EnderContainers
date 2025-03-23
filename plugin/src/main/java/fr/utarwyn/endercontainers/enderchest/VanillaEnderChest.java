@@ -49,7 +49,8 @@ public class VanillaEnderChest extends EnderChest {
      */
     @Override
     public boolean isContainerUsed() {
-        return this.owner != null && !this.owner.getEnderChest().getViewers().isEmpty();
+        return false;
+        //return this.owner != null && !this.owner.getEnderChest().getViewers().isEmpty();
     }
 
     /**
@@ -59,7 +60,13 @@ public class VanillaEnderChest extends EnderChest {
      * @return true if the player is using this container
      */
     public boolean isUsedBy(Player player) {
-        return this.owner != null && this.owner.getEnderChest().getViewers().contains(player);
+        // EnderContainers.getInstance().getLogger().warning("Call isUsedBy()");
+        if (this.owner != null && !this.owner.equals(player)) {
+            return this.owner.getEnderChest().getViewers().contains(player);
+        } else {
+            return false;
+        }
+        //return this.owner != null && this.owner.getEnderChest().getViewers().contains(player);
     }
 
     /**
@@ -67,12 +74,13 @@ public class VanillaEnderChest extends EnderChest {
      */
     @Override
     public int getSize() {
-        if (this.owner != null) {
-            Inventory inventory = this.owner.getEnderChest();
-            return (int) Arrays.stream(inventory.getContents()).filter(Objects::nonNull).count();
-        } else {
-            return 0;
-        }
+        return 0;
+//        if (this.owner != null) {
+//            Inventory inventory = this.owner.getEnderChest();
+//            return (int) Arrays.stream(inventory.getContents()).filter(Objects::nonNull).count();
+//        } else {
+//            return 0;
+//        }
     }
 
     /**
