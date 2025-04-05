@@ -37,7 +37,7 @@ public class EnderContainers extends JavaPlugin {
             Files.reload(this);
         } catch (ConfigLoadingException e) {
             this.getLogger().log(Level.SEVERE, "Cannot load plugin configuration or messages file", e);
-            this.getPluginLoader().disablePlugin(this);
+            getServer().getPluginManager().disablePlugin(this);
             return;
         }
 

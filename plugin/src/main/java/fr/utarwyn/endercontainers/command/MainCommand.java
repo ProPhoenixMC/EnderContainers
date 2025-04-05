@@ -34,6 +34,7 @@ public class MainCommand extends AbstractCommand {
         this.addSubCommand(new BackupCommand());
         this.addSubCommand(new ReloadCommand(plugin));
         this.addSubCommand(new UpdateCommand());
+        this.addSubCommand(new ReserializeCommand(plugin));
 
         // Get all needed informations of the plugin in the description file
         this.mainAuthor = plugin.getDescription().getAuthors().get(0);

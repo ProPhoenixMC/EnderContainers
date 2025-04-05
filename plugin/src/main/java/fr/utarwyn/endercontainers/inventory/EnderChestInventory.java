@@ -14,7 +14,6 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Objects;
 import java.util.concurrent.ConcurrentMap;
 
 /**
@@ -106,7 +105,8 @@ public class EnderChestInventory extends AbstractInventoryHolder {
     @Override
     protected String getTitle() {
         String num = String.valueOf(this.chest.getNum() + 1);
-        String playername = Objects.requireNonNull(UUIDFetcher.getName(this.chest.getOwner()));
+        String playername = UUIDFetcher.getName(this.chest.getOwner());
+        if (playername == null) playername = "unknown";
 
         return Files.getLocale().getMessage(LocaleKey.MENU_CHEST_TITLE)
                 .replace("%player%", playername)

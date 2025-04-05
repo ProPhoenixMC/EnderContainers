@@ -10,7 +10,7 @@ import fr.utarwyn.endercontainers.storage.backups.BackupsSQLData;
 import fr.utarwyn.endercontainers.storage.player.PlayerData;
 import fr.utarwyn.endercontainers.storage.player.PlayerFlatData;
 import fr.utarwyn.endercontainers.storage.player.PlayerSQLData;
-import fr.utarwyn.endercontainers.storage.serialization.Base64ItemSerializer;
+import fr.utarwyn.endercontainers.storage.serialization.ConverterItemSerializer;
 import fr.utarwyn.endercontainers.storage.serialization.ItemSerializer;
 
 import java.util.UUID;
@@ -53,7 +53,8 @@ public class StorageManager extends AbstractManager {
         this.playerDataPattern = useSqlStorage ? PlayerSQLData.class : PlayerFlatData.class;
 
         // Initialize the item serializer
-        this.itemSerializer = new Base64ItemSerializer();
+        //this.itemSerializer = new Base64ItemSerializer();
+        this.itemSerializer = new ConverterItemSerializer();
     }
 
     /**

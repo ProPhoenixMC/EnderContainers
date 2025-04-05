@@ -9,7 +9,7 @@ version = rootProject.version
 
 compileJava {
     sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_21
     options.encoding = 'UTF-8'
 }
 
@@ -23,7 +23,7 @@ configurations {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT' // cannot upgrade due to Inventory errors
+    compileOnly 'io.papermc.paper:paper-api:1.20-R0.1-SNAPSHOT' // cannot upgrade due to Inventory errors
 
     testImplementation platform('org.junit:junit-bom:5.10.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'

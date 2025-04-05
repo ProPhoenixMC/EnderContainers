@@ -3,12 +3,14 @@ package fr.utarwyn.endercontainers.storage.player;
 import fr.utarwyn.endercontainers.EnderContainers;
 import fr.utarwyn.endercontainers.enderchest.EnderChest;
 import fr.utarwyn.endercontainers.storage.serialization.ItemSerializer;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -67,7 +69,12 @@ public class PlayerFlatData extends PlayerData {
     @Override
     public void save() {
         try {
-            this.configuration.save(this.file);
+            ConfigurationSection section = this.configuration.getConfigurationSection(PREFIX);
+            if (section == null || section.getKeys(true).isEmpty()) {
+                Files.deleteIfExists(this.file.toPath());
+            } else {
+                this.configuration.save(this.file);
+            }
         } catch (IOException | NullPointerException e) {
             this.plugin.getLogger().log(Level.SEVERE, String.format(
                     "Cannot save player data to %s", this.file.getPath()
@@ -107,9 +114,14 @@ public class PlayerFlatData extends PlayerData {
         String contents = !chest.getContents().isEmpty() ?
                 this.serializeChestContents(chest) : null;
 
-        this.configuration.set(path + ".rows", chest.getRows());
-        this.configuration.set(path + ".position", chest.getNum());
+        this.configuration.set(path + ".rows", chest.getRows() == 3 ? null : chest.getRows());
+        this.configuration.set(path + ".position", null); //Unused (?)
         this.configuration.set(path + ".contents", contents);
+
+        ConfigurationSection section = this.configuration.getConfigurationSection(path);
+        if (section != null && section.getKeys(false).isEmpty()) {
+            this.configuration.set(path, null);
+        }
     }
 
 }
